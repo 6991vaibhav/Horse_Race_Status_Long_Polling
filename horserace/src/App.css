@@ -1,0 +1,91 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loginWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  padding: 0 20px 20px;
+}
+
+.login-cred-wrapper {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.raceStatusWrapper {
+  width: 400px;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnPrimary {
+  background-color: #24A0ED;
+  color: #ffffff;
+}
+
+input:focus {
+  outline: none;
+}
+
+td, th {
+  padding: 5px;
+  border: 1px solid lightgray;
+}
+
+.horse-id {
+  width: 25%;
+  text-align: right;
+}
+
+.horse-name {
+  width: 50%;
+  text-align: left;
+}
+
+.race-time {
+  width: 25%;
+  text-align: right;
+}
+
+.no_records {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 1px solid lightgray;
+  border-top: none;
+}
+
+.title {
+  margin: 5px 0;
+}
+
+.success {
+  color: limegreen;
+  margin-bottom: 5px;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
