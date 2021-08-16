@@ -11,7 +11,7 @@ Clone the Horse-Race-Status-Long-Polling repository by running
 ## Install Node packages and run app
 **Point to horseraceapi folder in terminal and run following commands to install all the dependencies required and run the app.\
 **1. npm install**\
-**2. npm run dev**\
+**2. npm run dev**
 
 **Point to horserace folder in terminal and run following commands to install all the dependencies required and run the app.\
 **1. npm install**\
