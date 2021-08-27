@@ -1,47 +1,64 @@
-import { useRef } from "react"
-import { useDispatch } from "../redux/react-redux-hooks"
-import { useHistory } from 'react-router-dom'
-import { loginToRaceDashboard, updateLoginToken } from "../redux/actions/loginActions"
+import { useRef } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "../redux/react-redux-hooks";
+import {
+  loginToRaceDashboard,
+  updateLoginToken,
+} from "../redux/actions/loginActions";
 
 const Login = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   const handleLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const loginCred = {
       email: emailRef.current.value,
-      password: passwordRef.current.value
-    }
-    loginToRaceDashboard(loginCred).then(res => {
-      dispatch(updateLoginToken({
-        ...loginCred,
-        token: res.data.token,
-      }))
-      history.push('/race')
-    })
-  }
+      password: passwordRef.current.value,
+    };
+    loginToRaceDashboard(loginCred).then((res) => {
+      dispatch(
+        updateLoginToken({
+          ...loginCred,
+          token: res.data.token,
+        })
+      );
+      history.push("/race");
+    });
+  };
 
   return (
-    <div className="loginWrapper">
+    <div className="login-wrapper">
       <h3>Login</h3>
       <form onSubmit={handleLogin}>
         <div className="login-cred-wrapper">
           <label>Email: </label>
-          <input type="email" ref={emailRef} placeholder="Enter email address..." />
+          <input
+            type="email"
+            ref={emailRef}
+            placeholder="Enter email address..."
+            required
+          />
         </div>
         <div className="login-cred-wrapper">
           <label>Password: </label>
-          <input type="password"  ref={passwordRef} placeholder="Enter password..." />
+          <input
+            type="password"
+            ref={passwordRef}
+            placeholder="Enter password..."
+            required
+          />
         </div>
-        <div className="btnWrapper">
-          <button type="submit" className="btnPrimary">Submit</button>
+        <div className="btn-wrapper">
+          <button type="submit" className="btn-primary">
+            Submit
+          </button>
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

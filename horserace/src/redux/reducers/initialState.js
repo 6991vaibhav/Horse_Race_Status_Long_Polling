@@ -1,4 +1,4 @@
-export const initialState = {
+const initialState = {
   login: {
     data: null,
   },
@@ -6,3 +6,5 @@ export const initialState = {
     data: []
   },
 }
+
+export default initialState

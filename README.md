@@ -10,12 +10,12 @@ Clone the Horse-Race-Status-Long-Polling repository by running
 ## Available Scripts
 ## Install Node packages and run app
 **Point to horseraceapi folder in terminal and run following commands to install all the dependencies required and run the app.\
-**1. npm install**\
-**2. npm run dev**
+**1. yarn i**\
+**2. yarn dev**
 
 **Point to horserace folder in terminal and run following commands to install all the dependencies required and run the app.\
-**1. npm install**\
-**2. npm start**\
+**1. yarn i**\
+**2. yarn start**\
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -37,10 +37,10 @@ Open another terminal and run below commands.\
 **5. docker exec -it __containerId from the above command result__ sh**\
 for example : docker exec -it cfef6147e1d6 sh
 **6. Folder will be shown which is created in Dockerfile in Project** (To see the content of folder run ls command)\
-** Run command __npm start__ ** (This will start the server and now Application will be up and running on the given url)\
+** Run command __yarn start__ ** (This will start the server and now Application will be up and running on the given url)\
 
 
-### `npm test`
+### `yarn test`
 
  Point to horserace folder in terminal and run following command to run the test\
-**npm test src/__test__/components/Race.test.js**
+**yarn test src/__test__/components/Race.test.js**

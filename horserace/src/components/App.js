@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Race from './Race'
 import Login from './Login'
-import '../App.css'
+import '../assets/styles/App.css'
+import NotFound from './NotFound';
 
 function App() {
   return (
@@ -9,13 +10,16 @@ function App() {
       <div className="app">
         <Switch>
           <Route path='/' exact>
+            <Redirect from="/" to="/login" />
+          </Route>
+          <Route path='/login' exact>
             <Login />
           </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/race'>
+          <Route path='/race' exact>
             <Race />
+          </Route>
+          <Route path='*'>
+            <NotFound />
           </Route>
         </Switch>
       </div>

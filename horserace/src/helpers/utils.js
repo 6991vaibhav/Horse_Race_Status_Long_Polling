@@ -1,5 +1,5 @@
-import cloneDeep from 'lodash/cloneDeep'
-import findIndex from 'lodash/findIndex'
+import cloneDeep from "lodash/cloneDeep";
+import findIndex from "lodash/findIndex";
 
 export const sortRaceStatus = (data) => {
   return data.sort((a, b) => {
@@ -8,10 +8,10 @@ export const sortRaceStatus = (data) => {
     } else if (!b.endTime) {
       return -1;
     } else {
-      return a.endTime - b.endTime
+      return a.endTime - b.endTime;
     }
-  })
-}
+  });
+};
 
 export const updateRaceStatus = (data, newRecord) => {
   if (newRecord.event === "start") {
@@ -21,17 +21,26 @@ export const updateRaceStatus = (data, newRecord) => {
       startTime: 0,
       endTime: null,
     };
-    data = [...data, newHorseDetail]
-    const isAnyHorseFinished = data.find(item => item.endTime !== null)
+    data = [...data, newHorseDetail];
+    const isAnyHorseFinished = data.find((item) => item.endTime !== null);
     return isAnyHorseFinished ? sortRaceStatus(data) : data;
   } else {
     const clonedData = cloneDeep(data);
     if (newRecord.horse) {
-      const itemIndex = findIndex(clonedData, (item) => item.id === newRecord.horse.id);
+      const itemIndex = findIndex(
+        clonedData,
+        (item) => item.id === newRecord.horse.id
+      );
       if (itemIndex !== -1) {
         Object.assign(clonedData[itemIndex], { endTime: newRecord.time });
       }
     }
     return sortRaceStatus(clonedData);
   }
-}
+};
+
+export const formatTime = (time) => {
+  const formattedTime =
+    time && `${(time / 1000).toFixed(1)}`.split(".").join(",");
+  return formattedTime && `${formattedTime}s`;
+};
